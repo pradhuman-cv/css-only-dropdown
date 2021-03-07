@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submenus using css only</title>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        background-color: whitesmoke;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        background-color: rgb(67, 140, 189);
+    }
+
+    .menu-div {
+        position: relative;
+        display: inline-block;
+        background-color: rgb(67, 140, 189);
+        color: white;
+        white-space: nowrap;
+        padding: 10px 8px 10px 1px;
+    }
+
+    .menu-div a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 14px;
+    }
+
+    a:hover {
+        color: bisque;
+    }
+
+    .menu-div label {
+        padding: 10px 8px;
+    }
+
+    .submenu-div {
+        position: absolute;
+        top: 95%;
+        left: 0;
+        z-index: 10;
+        background-color: rgb(67, 140, 189);
+        height: 0;
+        width: 0;
+        opacity: 0;
+        font-size: 0;
+        transition: opacity, font-size 0.2s linear;
+        overflow: hidden;
+    }
+
+    .submenu-div ul {
+        list-style-type: none;
+    }
+
+    .submenu-div ul li {
+        padding: 10px 8px;
+    }
+
+    .submenu-div ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* 
+    .submenu-div ul li a:hover {
+        color: bisque;
+    } */
+
+    input {
+        opacity: 0;
+    }
+
+    .inputsel:checked.inputsel:focus-within~label .submenu-div {
+        height: max-content;
+        width: max-content;
+        opacity: 1;
+        font-size: 14px;
+        background-color: rgb(67, 140, 189);
+    }
+
+    label:hover .submenu-div {
+        height: max-content;
+        width: max-content;
+        opacity: 1;
+        font-size: 14px;
+        background-color: rgb(67, 140, 189);
+    }
+
+    label:hover {
+        color: bisque;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="menu-div"><a href="#">Home</a></div>
+        <div class="menu-div">
+            <input class="inputsel" type="checkbox" id="our-services">
+            <label for="our-services">Our Services
+                <div class="submenu-div">
+                    <ul>
+                        <li><a href="#">Repairing</a></li>
+                        <li><a href="#">Modification</a></li>
+                        <li><a href="#">Repainting</a></li>
+                        <li><a href="#">Washing</a></li>
+                        <li><a href="#">Complete Servicing</a></li>
+                    </ul>
+                </div>
+            </label>
+
+        </div>
+        <div class="menu-div"><a href="#">Contact Us</a></div>
+    </nav>
+
+
+</body>
+
+</html>
